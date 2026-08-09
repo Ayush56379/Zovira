@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaCart — a premium modern marketplace for discovering products, deals and trusted sellers.">
+  <meta name="theme-color" content="#ffffff">
+  <title>NovaCart — Premium Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-loader" id="pageLoader" aria-label="Loading">
+    <div class="loader-logo">N</div>
+    <div class="loader-line"><span></span></div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="announcement">
+      <div class="container announcement-inner">
+        <span>Free shipping on selected orders</span>
+        <button class="announcement-link" id="offerBtn">View today's offers →</button>
+      </div>
+    </div>
+
+    <div class="container main-nav">
+      <a class="brand" href="#home" aria-label="NovaCart home">
+        <span class="brand-mark">N</span>
+        <span>Nova<span>Cart</span></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#trending">Trending</a>
+        <a href="#deals">Deals</a>
+        <a href="#brands">Brands</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn search-toggle" id="searchToggle" aria-label="Search" title="Search">⌕</button>
+        <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist" title="Wishlist">
+          ♡ <span class="count-badge" id="wishlistCount">0</span>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="Cart" title="Cart">
+          🛒 <span class="count-badge" id="cartCount">0</span>
+        </button>
+        <button class="account-btn" id="accountBtn">Account</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+
+    <div class="search-panel" id="searchPanel">
+      <div class="container search-panel-inner">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search products, brands and categories..." autocomplete="off">
+        <button id="clearSearch" class="clear-search" aria-label="Clear search">×</button>
+        <div class="search-suggestions" id="searchSuggestions"></div>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#trending">Trending</a>
+      <a href="#deals">Deals</a>
+      <a href="#brands">Brands</a>
+      <button id="mobileAccount">My Account</button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span> The new way to shop</div>
+          <h1>Discover what<br><em>moves you.</em></h1>
+          <p>Explore thoughtfully selected products from trusted sellers, with fast discovery, secure checkout and a shopping experience designed around you.</p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#trending">Explore products <span>→</span></a>
+            <button class="text-btn" id="sellerHeroBtn">Become a seller <span>↗</span></button>
+          </div>
+          <div class="hero-trust">
+            <div class="avatars"><span>AJ</span><span>RS</span><span>KM</span><span>+8k</span></div>
+            <div><strong>4.8/5</strong><small>Loved by shoppers</small></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal delay-1">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-card main-product">
+            <div class="product-art art-headphones">
+              <div class="headphone-band"></div>
+              <div class="ear left"></div><div class="ear right"></div>
+              <div class="headphone-glow"></div>
+            </div>
+            <div class="hero-product-info">
+              <span>Featured today</span>
+              <h3>AirPulse Studio</h3>
+              <div><strong>₹3,999</strong><del>₹5,499</del></div>
+            </div>
+          </div>
+          <div class="floating-card rating-card"><strong>★ 4.9</strong><span>2.4k reviews</span></div>
+          <div class="floating-card delivery-card"><span class="pulse-dot"></span><div><strong>Fast delivery</strong><small>Selected cities</small></div></div>
+        </div>
+      </div>
+      <div class="hero-bottom container">
+        <div><strong>10k+</strong><span>Products</span></div>
+        <div><strong>2k+</strong><span>Verified sellers</span></div>
+        <div><strong>4.8/5</strong><span>Customer rating</span></div>
+        <div><strong>24/7</strong><span>Support</span></div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="categories">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="kicker">Browse by</span><h2>Shop categories</h2></div>
+          <button class="outline-btn" id="allCategoriesBtn">View all categories →</button>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="trending">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="kicker">Curated for you</span><h2>Trending right now</h2></div>
+          <div class="filter-pills" id="filterPills">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="tech">Tech</button>
+            <button data-filter="fashion">Fashion</button>
+            <button data-filter="home">Home</button>
+          </div>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section class="section deal-section" id="deals">
+      <div class="container">
+        <div class="deal-banner reveal">
+          <div class="deal-copy">
+            <span class="kicker">Limited time</span>
+            <h2>Weekend drop.<br><em>Up to 40% off.</em></h2>
+            <p>Fresh picks, limited quantities and special prices across selected collections.</p>
+            <a href="#trending" class="btn btn-dark">Shop the drop →</a>
+          </div>
+          <div class="deal-clock" aria-label="Offer countdown">
+            <div><strong id="hours">08</strong><span>Hours</span></div>
+            <b>:</b>
+            <div><strong id="minutes">24</strong><span>Minutes</span></div>
+            <b>:</b>
+            <div><strong id="seconds">59</strong><span>Seconds</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="brands">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="kicker">Trusted names</span><h2>Popular brands</h2></div>
+        </div>
+        <div class="brand-row">
+          <button class="brand-chip" data-brand="Aero">AERO</button>
+          <button class="brand-chip" data-brand="North">NORTH</button>
+          <button class="brand-chip" data-brand="Luma">LUMA</button>
+          <button class="brand-chip" data-brand="Mono">MONO</button>
+          <button class="brand-chip" data-brand="Forma">FORMA</button>
+          <button class="brand-chip" data-brand="Vela">VELA</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="kicker">Why NovaCart</span><h2>Made for better shopping.</h2></div>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit reveal"><span>01</span><h3>Trusted sellers</h3><p>Seller verification and product review workflows are built into the marketplace.</p></article>
+          <article class="benefit reveal delay-1"><span>02</span><h3>Secure checkout</h3><p>Payments are designed around verified transactions and clear order status.</p></article>
+          <article class="benefit reveal delay-2"><span>03</span><h3>Easy tracking</h3><p>Follow your order from confirmation to delivery with clear shipment updates.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container newsletter reveal">
+        <div><span class="kicker">Stay in the loop</span><h2>Get the good stuff first.</h2><p>New drops, useful finds and offers. No noise.</p></div>
+        <form id="newsletterForm">
+          <label class="sr-only" for="emailInput">Email address</label>
+          <input id="emailInput" type="email" placeholder="Your email address" required>
+          <button class="btn btn-dark" type="submit">Subscribe</button>
+          <small id="newsletterMessage" role="status"></small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand footer-brand" href="#home"><span class="brand-mark">N</span><span>Nova<span>Cart</span></span></a><p>A modern marketplace built for discovery, trusted sellers and simple shopping.</p></div>
+      <div><h4>Shop</h4><a href="#trending">Trending</a><a href="#deals">Deals</a><a href="#categories">Categories</a></div>
+      <div><h4>Sell</h4><button id="sellerFooterBtn">Become a seller</button><button id="supportBtn">Seller support</button></div>
+      <div><h4>Help</h4><button id="faqBtn">FAQ</button><button id="contactBtn">Contact</button></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 NovaCart. All rights reserved.</span><span>Secure shopping • Verified sellers • Support</span></div>
+  </footer>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head"><h2 id="drawerTitle">Your cart</h2><button id="drawerClose" class="close-btn">×</button></div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot" id="drawerFoot"></div>
+  </aside>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close-btn modal-close" id="modalClose">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
